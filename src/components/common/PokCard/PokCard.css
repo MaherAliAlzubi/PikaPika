@@ -1,0 +1,22 @@
+.PokCard {
+    background-color: #F2F3F4;
+    width: 250px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.73);
+    margin: 15px;
+}
+
+.PokCard:hover {
+    cursor: pointer;
+}
+
+.PokCard__title {
+    background-color: white;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.PokCard__image {
+   max-height: 250px;
+   max-width: 250px;
+}
