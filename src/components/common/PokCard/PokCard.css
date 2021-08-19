@@ -1,9 +1,12 @@
 .PokCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     background-color: #F2F3F4;
-    width: 250px;
-    border-radius: 6px;
+    border-radius: 10px;
     box-shadow: 5px 5px 5px 2px rgba(0,0,0,0.73);
     margin: 15px;
+    width: 250px;
 }
 
 .PokCard:hover {
@@ -11,12 +14,14 @@
 }
 
 .PokCard__title {
-    background-color: white;
+    border-top: 2.5px solid #F2F3F4;
+    background-color:white;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
 }
 
 .PokCard__image {
-   max-height: 250px;
-   max-width: 250px;
+    margin-bottom: 60px;
+    max-height: 250px;
+    max-width: 250px;
 }

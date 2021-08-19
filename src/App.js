@@ -6,7 +6,7 @@ import axios from 'axios';
 function App() {
   const [pokemonsData, setPokemonsData] = useState([]);
   useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon?limit=100')
+    axios.get('https://pokeapi.co/api/v2/pokemon?limit=10')
       .then((response) => {
         const pokemons = response.data.results;
         pokemons.map((pokemon) => {
@@ -22,7 +22,7 @@ function App() {
                 attack: 20,
                 imageURL: data.sprites.other.dream_world.front_default,
               }
-              const poksData = pokemonsData;
+              let poksData = pokemonsData;
               poksData.push(pokData);
               setPokemonsData(poksData);
             })
@@ -30,7 +30,7 @@ function App() {
         });
       })
       .catch((error) => { });
-  });
+  },[]);
   return (
     <div className='App'>
       <PokList data={pokemonsData} />
