@@ -10,12 +10,7 @@ export default function PokList({ data }) {
                     <PokCard
                         key={pok.number}
                         name={pok.name}
-                        number={pok.number}
-                        weight={pok.weight}
-                        height={pok.height}
-                        hp={pok.hp}
-                        attack={pok.attack}
-                        imageURL={pok.imageURL}
+                        url={pok.url}
                     />
                 );
             })}

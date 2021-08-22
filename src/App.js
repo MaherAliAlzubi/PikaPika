@@ -5,35 +5,21 @@ import axios from 'axios';
 
 function App() {
   const [pokemonsData, setPokemonsData] = useState([]);
+  const [size,setSize] = useState(10);
   useEffect(() => {
-    axios.get('https://pokeapi.co/api/v2/pokemon?limit=10')
+    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${size}`)
       .then((response) => {
-        const pokemons = response.data.results;
-        pokemons.map((pokemon) => {
-          axios.get(pokemon.url)
-            .then((response) => {
-              const data = response.data;
-              const pokData = {
-                name: data.name,
-                number: data.id,
-                weight: data.weight,
-                length: data.length,
-                hp: 20,
-                attack: 20,
-                imageURL: data.sprites.other.dream_world.front_default,
-              }
-              let poksData = pokemonsData;
-              poksData.push(pokData);
-              setPokemonsData(poksData);
-            })
-            .catch((error) => { });
-        });
+        setPokemonsData(response.data.results);
       })
       .catch((error) => { });
-  },[]);
+  }, [size]);
   return (
     <div className='App'>
       <PokList data={pokemonsData} />
+    <div className='pagination'>
+    <button className='button' onClick={()=>{setSize(Math.max(10,size-10))}}>Previous</button>
+    <button className='button' onClick={()=>{setSize(size+10)}}>Next</button>
+    </div>
     </div>
   );
 }
